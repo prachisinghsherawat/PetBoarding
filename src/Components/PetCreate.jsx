@@ -8,11 +8,34 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import { useState } from 'react';
+import axios from 'axios';
 
 export function PetCreate() {
-  
-    const handleChange = () =>{
 
+    const [create ,setCreate] = useState({
+      image : "",
+      name : "",
+      city : "",
+      address : "",
+      capacity : "",
+      cost_per_day : "",
+      verified : "",
+      rating : ""
+
+    })
+  
+    const handleChange = (e) =>{
+
+      const {id,value} = e.target;
+      setCreate({...create, [id] : value})
+
+    }
+
+    const handleSubmit = () => {
+
+      axios.post("http://localhost:8080/listing/create", create).then((res)=>
+      {localStorage.setItem("user-id",JSON.stringify(res.data._id))})
     }
 
   return (
@@ -26,60 +49,60 @@ export function PetCreate() {
     >
 
         <TextField
-        id="outlined-name"
+        id="image"
         label="Image Url"
         onChange={handleChange}
       />  
 
       <TextField
-        id="outlined-name"
+        id="name"
         label="Name"
         onChange={handleChange}
       />
 
        <TextField
-        id="outlined-name"
+        id="city"
         label="City"
         onChange={handleChange}
       />
 
         <TextField
-        id="outlined-name"
+        id="address"
         label="Address"
         onChange={handleChange}
       />
 
         <TextField
-        id="outlined-name"
+        id="capacity"
         label="Capacity"
         onChange={handleChange}
       />
 
         <TextField
-        id="outlined-name"
+        id="cost_per_day"
         label="Cost per day"
         onChange={handleChange}
       />
 
         <TextField
-        id="outlined-name"
+        id="verified"
         label="Verified"
         onChange={handleChange}
       />
 
         <TextField
-        id="outlined-name"
+        id="rating"
         label="Rating"
         onChange={handleChange}
       /> 
 
-        <TextField
+        {/* <TextField
         id="outlined-name"
         label="Walks"
         onChange={handleChange}
-      /> 
+      />  */}
 
-    <FormControl id="formIs">
+    {/* <FormControl id="formIs">
       <FormLabel id="demo-row-radio-buttons-group-label">Size</FormLabel>
       <RadioGroup id='radioBtn1'
         row
@@ -105,7 +128,7 @@ export function PetCreate() {
         <FormControlLabel value="cat" control={<Radio />} label="Cat" />
         <FormControlLabel value="rabbit" control={<Radio />} label="Rabbit" />
       </RadioGroup>
-    </FormControl><br /><br />
+    </FormControl><br /><br /> */}
 
     
   
@@ -116,7 +139,7 @@ export function PetCreate() {
 
 
     <Stack spacing={2} direction="row">
-      <Button id='inputBtn' variant="contained">SUBMIT</Button>
+      <Button onClick={handleSubmit} id='inputBtn' variant="contained">SUBMIT</Button>
     </Stack>
        
       

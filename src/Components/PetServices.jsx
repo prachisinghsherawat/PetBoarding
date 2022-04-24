@@ -13,6 +13,7 @@ import axios from 'axios';
 
 export function PetServices() {
 let id = JSON.parse(localStorage.getItem("user-id"))
+console.log(id)
     const [petcreate ,setPetcreate] = useState({
 
         imageUrl : "",

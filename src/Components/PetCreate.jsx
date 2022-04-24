@@ -10,8 +10,11 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 export function PetCreate() {
+
+  const navigate = useNavigate();
 
     const [create ,setCreate] = useState({
       image : "",
@@ -36,6 +39,7 @@ export function PetCreate() {
 
       axios.post("http://localhost:8080/listing/create", create).then((res)=>
       {localStorage.setItem("user-id",JSON.stringify(res.data._id))})
+      navigate("/listing/create/details")
     }
 
   return (

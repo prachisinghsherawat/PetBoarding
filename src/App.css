@@ -71,3 +71,19 @@ h1{
   font-family: 'Courier New', Courier, monospace;
 }
 
+.selectTag{
+  height: 130px;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectTag >div{
+  margin-top: 3%;
+  width: 20%;
+}
+
+#pagination{
+  margin: auto;
+}

@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import axios from "axios";
 import { useNavigate } from 'react-router';
+import { Navbar } from './Navbar';
 
 
 export function Login() {
@@ -43,6 +44,11 @@ export function Login() {
     
 
   return (
+
+    <>
+    <Navbar />
+
+    <h3>Login Page</h3>
     <Box className='inputBox'
       component="form"
       sx={{
@@ -73,5 +79,6 @@ export function Login() {
        
       
     </Box>
+    </>
   )
 }

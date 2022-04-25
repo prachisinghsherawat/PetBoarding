@@ -12,6 +12,7 @@ import FormLabel from '@mui/material/FormLabel';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Navbar } from './Navbar';
 
 export function Signup() {
 
@@ -43,6 +44,11 @@ export function Signup() {
     }
    console.log(register)
   return (
+
+    <>
+    <Navbar />
+
+    <h3>Sign Up Page</h3>
     <Box className='inputBox'
       component="form"
       sx={{
@@ -96,5 +102,7 @@ export function Signup() {
        
       
     </Box>
+
+    </>
   )
 }

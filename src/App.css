@@ -17,6 +17,7 @@ a{
 
 #inputBtn{
   padding: 5% 14%;
+  margin-top: 5%;
   background-color: rgb(15, 15, 15);
 }
 
@@ -72,7 +73,7 @@ h1{
 }
 
 .selectTag{
-  height: 130px;
+  height: 110px;
   width: 70%;
   margin: auto;
   display: flex;
@@ -86,4 +87,19 @@ h1{
 
 #pagination{
   margin: auto;
+  height: 90px;
+}
+
+h2{
+  text-align: center;
+}
+
+.cont{
+  display: flex;
+}
+
+h3{
+  margin-top: 5%;
+  font-size: 45px;
+  margin-left: 26%;
 }

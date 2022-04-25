@@ -33,7 +33,7 @@ export const Navbar = () => {
 
   return (
     <AppBar id='navbar' position="static">
-      <Container maxWidth="xl">
+      <Container className='cont' maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -89,20 +89,33 @@ export const Navbar = () => {
             
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+            {/* -------------------------------------- Home Page --------------------------------------------- */}
             
               <Button
                 sx={{ my: 2, color: 'white', display: 'block' , textDecoration :"none" }}>
                 <a href="/">HOME</a>
               </Button>
-
-              <Button
-               
-                sx={{ my: 2, color: 'white', display: 'block' ,textDecoration :"none" }}>
-                <a href="/listing/create">ADD Details</a>
-              </Button>
             
           </Box>
+
+           {/*----------------------------------------- SignUp Page ----------------------------------------*/}
+
+          <Button
+               sx={{ my: 2, color: 'white', display: 'block' ,textDecoration :"none" }}>
+                 <a href="/signup">SIGN UP</a>
+          </Button>
+
+          {/*------------------------------------------ Login Page -------------------------------------------*/}
+
+          <Button
+               sx={{ my: 2, color: 'white', display: 'block' ,textDecoration :"none" }}>
+                 <a href="/login">LOGIN</a>
+          </Button>
+
         </Toolbar>
+
+              
       </Container>
     </AppBar>
   );

@@ -11,6 +11,7 @@ import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { Navbar } from './Navbar';
 
 export function PetCreate() {
 
@@ -43,6 +44,9 @@ export function PetCreate() {
     }
 
   return (
+
+    <>
+    <Navbar />
     <Box className='inputBox'
       component="form"
       sx={{
@@ -148,5 +152,6 @@ export function PetCreate() {
        
       
     </Box>
+    </>
   )
 }

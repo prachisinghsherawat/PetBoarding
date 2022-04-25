@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { useState } from 'react';
 import axios from 'axios';
+import { Navbar } from './Navbar';
 
 export function PetServices() {
 let id = JSON.parse(localStorage.getItem("user-id"))
@@ -42,6 +43,9 @@ console.log(id)
     }
   console.log(petcreate)
   return (
+
+    <>
+    <Navbar />
     <Box className='inputBox'
       component="form"
       sx={{
@@ -119,5 +123,6 @@ console.log(id)
        
       
     </Box>
+    </>
   )
 }

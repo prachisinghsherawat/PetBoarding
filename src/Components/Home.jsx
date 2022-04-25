@@ -18,6 +18,7 @@ import Stack from '@mui/material/Stack';
 import axios from "axios"
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { Navbar } from './Navbar';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -49,13 +50,12 @@ export function Home() {
   const [age, setAge] = React.useState('');
   const [data,setData] = React.useState([])
   const [page, setPage] = React.useState(1);
-
   const [city ,setCity] = React.useState("")
   const [verified ,setVerified ] = React.useState("")
   const [cost,setCost] = React.useState("")
   const [rating,setRating] = React.useState("")
 
-  useEffect(()=>{getData()},[])
+  useEffect(()=>{getData()},[page,city,verified,cost,rating,data])
   const navigate = useNavigate()
 
   const handleChanges = (event, value) => {
@@ -81,12 +81,13 @@ export function Home() {
 
     axios.get(`http://localhost:8080/listing?page=${page}&city=${city}&verified=${verified}&cost=${cost}&rating=${rating}`).then((res)=>{setData(res.data)})
   }
-
   
   return (
     <>
 
-    {/* Filter part */}
+    <Navbar/>
+
+    {/*------------------------------------- Filter Part --------------------------------------------------*/}
     
     <div className="selectTag">
 
@@ -175,8 +176,8 @@ export function Home() {
         </TableHead>
         <TableBody>
           {data.map((el) => (
-            <StyledTableRow onClick={() => navigate(`/listing/${el._id}`)} key={el._id}>
-              <StyledTableCell id='petHome' component="th" scope="row">
+            <StyledTableRow key={el._id}>
+              <StyledTableCell id='petHome' component="th" scope="row" onClick={() => navigate(`/listing/${el._id}`)}>
                 <img id='petImg' src={el.image} />
               </StyledTableCell>
               <StyledTableCell align="right">{el.name}</StyledTableCell>
@@ -187,7 +188,9 @@ export function Home() {
               <StyledTableCell align="right">{el.verified}</StyledTableCell>
               <StyledTableCell align="right">{el.rating}</StyledTableCell>
               
+              
             </StyledTableRow>
+            
           ))}
         </TableBody>
       </Table>
@@ -195,11 +198,11 @@ export function Home() {
 
 
 
-    {/* pagination */}
+    {/* --------------------------------------- Pagination ------------------------------------------------ */}
 
     <Stack spacing={2}>
       <Typography>Page: {page}</Typography>
-      <Pagination id="pagination" count={4} page={page} onChange={handleChanges} />
+      <Pagination id="pagination" count={3} page={page} onChange={handleChanges} />
     </Stack>
 
 

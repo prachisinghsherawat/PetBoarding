@@ -17,7 +17,7 @@ export function Login() {
 
  const navigate = useNavigate()
     const handleSubmit = ()=>{
-        axios.post("http://localhost:8080/login",logindata).then((res)=>{
+        axios.post("https://pethouse-app.herokuapp.com/login",logindata).then((res)=>{
           console.log(res.data.user.roles[0])
               if(res.data.user.roles[0]=="user"){
                 alert("login is successful !")

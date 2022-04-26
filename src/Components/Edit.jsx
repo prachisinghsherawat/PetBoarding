@@ -36,7 +36,7 @@ export const Edit = ()=>{
   
       }
       const getData = ()=>{
-          axios.get(`http://localhost:8080/listing/${id}`).then((res)=>{
+          axios.get(`https://pethouse-app.herokuapp.com/listing/${id}`).then((res)=>{
          
             
       
@@ -56,7 +56,7 @@ export const Edit = ()=>{
     
       const Editing = (id)=>{
           console.log(id)
-          axios.patch(`http://localhost:8080/listing/${id}`,create).then((res)=>{
+          axios.patch(`https://pethouse-app.herokuapp.com/listing/${id}`,create).then((res)=>{
               console.log(res.data)
           })
       }

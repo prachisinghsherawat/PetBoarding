@@ -32,7 +32,7 @@ export function Signup() {
     }
 
     const handleSubmit = () => {
-        axios.post("http://localhost:8080/register",register).then((res) => {
+        axios.post("https://pethouse-app.herokuapp.com/register",register).then((res) => {
             if(res.data.user.username ){
               alert("registration is successfull !")
                 navigate("/login")

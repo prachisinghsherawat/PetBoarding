@@ -11,7 +11,7 @@ export const PetDetails = () => {
 
     const getData = () => {
 
-        axios.get(`http://localhost:8080/listing/add/${id}`).then((res)=>{setData(res.data)})
+        axios.get(`https://pethouse-app.herokuapp.com/listing/add/${id}`).then((res)=>{setData(res.data)})
     }
     console.log(data)
 

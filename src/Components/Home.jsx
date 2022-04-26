@@ -55,7 +55,7 @@ export function Home() {
   const [cost,setCost] = React.useState("")
   const [rating,setRating] = React.useState("")
 
-  useEffect(()=>{getData()},[page,city,verified,cost,rating,data])
+  useEffect(()=>{getData()},[page,city,verified,cost,rating])
   const navigate = useNavigate()
 
   const handleChanges = (event, value) => {
@@ -79,7 +79,7 @@ export function Home() {
 
   const getData = () => {
 
-    axios.get(`http://localhost:8080/listing?page=${page}&city=${city}&verified=${verified}&cost=${cost}&rating=${rating}`).then((res)=>{setData(res.data)})
+    axios.get(`https://pethouse-app.herokuapp.com/listing?page=${page}&city=${city}&verified=${verified}&cost=${cost}&rating=${rating}`).then((res)=>{setData(res.data)})
   }
   
   return (
